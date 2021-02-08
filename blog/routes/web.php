@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'BlogController@index');
 Route::get('/add-post', 'BlogController@addPost');
+Route::post('/store', 'BlogController@store');
