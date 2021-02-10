@@ -13,14 +13,14 @@
         {{csrf_field()}}
         <div class="form-group">
             <label for="title" name="title">Title</label>
-            <input type="title" class="form-control" id="title" placeholder="Name of a title" name="title">
+            <input type="text" class="form-control" id="title" placeholder="Name of a title" name="title">
         </div>
         <div class="form-group">
             <label for="category">Category</label>
             <select class="form-control" id="category" name="category">
                 <option name="category" value="" disabled selected>Choose a category</option>
                 @foreach($options as $option)
-                    <option value={{$option}}>{{$option}}</option>
+                    <option value={{$option->id}}>{{$option->category}}</option>
                 @endforeach
             </select>
         </div>
@@ -36,6 +36,5 @@
             <button type="submit" class="btn btn-warning rounded" name="post">Post</button>
         </div>
     </form>
-
 
 @endsection
