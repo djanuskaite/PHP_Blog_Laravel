@@ -11,7 +11,7 @@
         {{csrf_field()}}
         {{method_field('PATCH')}}
         <div class="form-group">
-            <label for="title" name="title">Title</label>
+            <label for="title">Title</label>
             <input type="text" value="{{$post->title}}" class="form-control" id="title" placeholder="Name of a title" name="title">
         </div>
         <div class="form-group">
@@ -20,10 +20,10 @@
 {{--                <option>{{$post->category}}</option>--}}
                 @foreach($options as $option)
                     @if($option->id == $post->category_id)
-                    <option value="{{$option->id}}" selected>{{$option->category}}</option>
+                    <option value="{{$option->id}}" selected>{{$option->category_name}}</option>
                     @endif
                         @if($option->id != $post->category_id)
-                            <option value="{{$option->id}}">{{$option->category}}</option>
+                            <option value="{{$option->id}}">{{$option->category_name}}</option>
                         @endif
                 @endforeach
             </select>

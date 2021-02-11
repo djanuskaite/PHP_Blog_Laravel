@@ -19,7 +19,7 @@ class CategoryController extends Controller
         ]);
 
         Category::create([
-            'category' => request('category')
+            'category_name' => request('category')
         ]);
 
         return redirect('/all-categories'); // nurodom kur jam grizti i pradini psl)
@@ -39,7 +39,7 @@ class CategoryController extends Controller
 
     public function showPostsByCategory(Category $category){
         $selectedCategory = DB::table('posts')
-            ->join('categories', 'categories.id', '=','posts.id')
+            ->join('categories', 'categories.id', '=','posts.category')
             ->select('*')
             ->where('categories.id', $category->id)
             ->paginate(5);

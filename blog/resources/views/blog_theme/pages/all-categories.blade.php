@@ -16,7 +16,7 @@
         <tbody>
         @foreach($category as $categories)
             <tr>
-                <td><a href="/category/{{$categories->id}}">{{$categories->category}}</a></td>
+                <td><a href="/category/{{$categories->id}}">{{$categories->category_name}}</a></td>
 {{--                <td>{{ $categories->category }}</td>--}}
                 <td><a href="/delete/category/{{$categories->id}}">Delete</a></td>
             </tr>

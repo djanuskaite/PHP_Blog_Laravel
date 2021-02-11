@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $fillable = ['category']; // jei nebus fillable, neleis irasyti i duombaze
+    protected $fillable = ['category_name']; // jei nebus fillable, neleis irasyti i duombaze
 
 }

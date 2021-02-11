@@ -27,3 +27,9 @@ Route::get('/delete/category/{category}', 'CategoryController@deleteCat');
 
 Route::get('/category/{category}', 'CategoryController@showPostsByCategory');
 /* padaryti psl skirta posto redagavimui, kuriame butu forma su posto duomenimis */
+
+Auth::routes();
+
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+//Route::get('/home', 'HomeController@index')->name('home');

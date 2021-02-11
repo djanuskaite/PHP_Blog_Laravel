@@ -19,6 +19,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
+                @if(Auth::check())
+                    <li><a href="/logout">Logout</a> </li>
+                @else
+                    <li><a href="/login">Login</a> </li>
+                @endif
             </ul>
         </div>
     </div>
