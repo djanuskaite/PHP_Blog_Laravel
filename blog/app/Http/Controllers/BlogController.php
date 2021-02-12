@@ -26,7 +26,7 @@ class BlogController extends Controller
         $posts = DB::table('posts')
             ->join('categories', 'posts.category', '=', 'categories.id')
             ->join('users', 'posts.user_id', '=', 'users.id')
-            ->select('posts.id', 'posts.title', 'posts.body', 'categories.category_name', 'users.name') //categories.category_name
+            ->select('posts.id', 'posts.title', 'posts.body', 'categories.category_name', 'users.id', 'posts.img', 'users.name') //categories.category_name
             ->paginate(5);
 
         return view('blog_theme.pages.home', compact('posts'));
@@ -43,13 +43,18 @@ class BlogController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|unique:posts|max:255',
             'body' => 'required',
-            'category' => 'required'
+            'category' => 'required',
+            'img' => 'mimes:jpeg, jpg, png, gif|required|max:10000'
         ]);
+
+        $path = $request->file('img')->store('public/images');
+        $filename = str_replace('public/', "", $path);
 
         Post::create([
             'title' => request('title'),
             'category' => request('category'),
             'body' => request('body'),
+            'img' => $filename,
             'user_id' => Auth::id()
         ]);
 

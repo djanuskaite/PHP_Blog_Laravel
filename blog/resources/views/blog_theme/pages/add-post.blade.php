@@ -9,7 +9,7 @@
 
 
     @include('blog_theme/_partials/errors')
-    <form action="/store" method="post">
+    <form action="/store" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="form-group">
             <label for="title">Title</label>
@@ -30,7 +30,7 @@
         </div>
         <div class="form-group">
             <label for="upload">Choose a picture:</label>
-            <input type="file" class="form-control" id="upload"  name="picture">
+            <input type="file" class="form-control" id="upload"  name="img">
         </div>
         <div class="form-group d-flex justify-content-center m-5">
             <button type="submit" class="btn btn-warning rounded" name="post">Post</button>

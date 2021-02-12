@@ -17,12 +17,15 @@
                             {{ Str::limit($post->body, 250) }}
 {{--                          {{ substr($post->body,0, 250) }}--}}
                         </p>
+                        <div>
+                            <img src="{{asset($post->img)}}"}>
+                        </div>
                         <p>Posted by: {{$post->name}}</p>
                     </a>
                     <a href="post/{{$post->id}}" class="text-info bg-warning rounded p-2 mb-5">Read More</a>
 
                         <div class="mt-4"><a href="/edit/{{$post->id}}"><i class="fas fa-pencil-alt"> Edit</i></a></div>
-                        <a onclick="return confirm('Are You Sure You Want to Delete That Post?')" href="/delete/{{$post->id}}"><i class="fas fa-trash-alt"> Delete</i></a>
+                        <a onclick="return confirm('Are You Sure You Want to Delete Thatvagra Post?')" href="/delete/{{$post->id}}"><i class="fas fa-trash-alt"> Delete</i></a>
 
                 </div>
         @endforeach
